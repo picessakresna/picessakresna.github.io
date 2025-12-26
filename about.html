@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Picessa | About Me</title>
+  <link href="src/output.css" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.1/dist/cdn.min.js"></script>
+    <link rel="icon" href="src/asset/icons/iconlogo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+</head>
+<body class="font-inter hide-scrollbar"> 
+
+    <!-- Tabs Container -->
+    <header>
+        <div class="mt-16 mx-4 flex justify-center 2xl:space-x-80 lg:space-x-20 sm:space-x-10">
+            <div class="h-14 w-14 text-gray-500 shadow-[0_0_30px_0_rgba(0,0,0,0.15)] rounded-full ">
+                <div class="flex justify-center p-4">
+                    <button onclick="goHome()" class="text-gray-500 relative focus:outline-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                            <path fill-rule="evenodd" d="M7.72 12.53a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 1 1 1.06 1.06L9.31 12l6.97 6.97a.75.75 0 1 1-1.06 1.06l-7.5-7.5Z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid grid-flow-col text-center w-[52rem]">
+            </div>
+            
+            <div class="burger h-14 w-14 text-gray-500 shadow-[0_0_30px_0_rgba(0,0,0,0.15)] rounded-full ">
+                <div class="flex justify-center">
+                <div class="relative p-3 sm:max-w-xl mx-auto">
+                    <nav x-data="{ isOpen: false }">
+                    <!-- Dropdown toggle button -->
+                    <button class="text-gray-500 w-8 h-6 relative focus:outline-none" @click="isOpen = !isOpen">
+                        <span class="sr-only">Open main menu</span>
+                        <div class="block w-5 absolute left-1/2 top-[14px] transform -translate-x-1/2 -translate-y-1/2">
+                        <span aria-hidden="true" class="block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out" :class="{'rotate-45': isOpen,' -translate-y-1.5': !isOpen }"></span>
+                        <span aria-hidden="true" class="block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out" :class="{'opacity-0': isOpen } "></span>
+                        <span aria-hidden="true" class="block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out" :class="{'-rotate-45': isOpen, ' translate-y-1.5': !isOpen}"></span>
+                        </div>
+                    </button>
+                    <!-- Dropdown menu -->
+                    <div x-show="isOpen"
+                        @click.away="isOpen = false"
+                        x-transition:enter="transition ease-out duration-300"
+                        x-transition:enter-start="opacity-0 scale-90"
+                        x-transition:enter-end="opacity-100 scale-100"
+                        x-transition:leave="transition ease-in duration-100"
+                        x-transition:leave-start="opacity-100 scale-100"
+                        x-transition:leave-end="opacity-0 scale-90"
+                        class="absolute right-0 z-20 w-48 p-4 mt-8 origin-top-right bg-white rounded-md shadow-[0_0_30px_0_rgba(0,0,0,0.15)] "
+                    >
+                        <a href="index.html" class="flex items-center gap-2 px-3 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100 ">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                                <path fill-rule="evenodd" d="M9.293 2.293a1 1 0 0 1 1.414 0l7 7A1 1 0 0 1 17 11h-1v6a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-6H3a1 1 0 0 1-.707-1.707l7-7Z" clip-rule="evenodd" />
+                            </svg>
+
+                            <span class="mx-1">
+                                Home
+                            </span>
+                        </a>
+
+                        <a href="more.html" class="flex items-center gap-2 p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform  hover:bg-gray-100  d">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                            <path d="M12 4.467c0-.405.262-.75.559-1.027.276-.257.441-.584.441-.94 0-.828-.895-1.5-2-1.5s-2 .672-2 1.5c0 .362.171.694.456.953.29.265.544.6.544.994a.968.968 0 0 1-1.024.974 39.655 39.655 0 0 1-3.014-.306.75.75 0 0 0-.847.847c.14.993.242 1.999.306 3.014A.968.968 0 0 1 4.447 10c-.393 0-.729-.253-.994-.544C3.194 9.17 2.862 9 2.5 9 1.672 9 1 9.895 1 11s.672 2 1.5 2c.356 0 .683-.165.94-.441.276-.297.622-.559 1.027-.559a.997.997 0 0 1 1.004 1.03 39.747 39.747 0 0 1-.319 3.734.75.75 0 0 0 .64.842c1.05.146 2.111.252 3.184.318A.97.97 0 0 0 10 16.948c0-.394-.254-.73-.545-.995C9.171 15.693 9 15.362 9 15c0-.828.895-1.5 2-1.5s2 .672 2 1.5c0 .356-.165.683-.441.94-.297.276-.559.622-.559 1.027a.998.998 0 0 0 1.03 1.005c1.337-.05 2.659-.162 3.961-.337a.75.75 0 0 0 .644-.644c.175-1.302.288-2.624.337-3.961A.998.998 0 0 0 16.967 12c-.405 0-.75.262-1.027.559-.257.276-.584.441-.94.441-.828 0-1.5-.895-1.5-2s.672-2 1.5-2c.362 0 .694.17.953.455.265.291.601.545.995.545a.97.97 0 0 0 .976-1.024 41.159 41.159 0 0 0-.318-3.184.75.75 0 0 0-.842-.64c-1.228.164-2.473.271-3.734.319A.997.997 0 0 1 12 4.467Z" />
+                            </svg>
+                            <span class="mx-1">
+                                More
+                            </span>
+                        </a>
+                    </div>
+                    </nav>
+                </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="mt-4 w-4/5 xl:w-3/5 mx-auto">
+        <div class="flex flex-col items-center">
+            <div>   
+                <h1 class="text-5xl sm:text-7xl font-bold leading-relaxed gradient-text-1 pb-2 text-center">Halo Again, I'm Picessa Kresna.</h1>
+            </div>
+            <div class="mt-6">    
+                <p class="text-lg font-medium text-center" style="color: #5E5E63;">I explore the world of Code, Design, and Data to build meaningful digital experiences 👻.</p>
+            </div>
+        </div>
+
+        <div class="bg-white">
+        <div class="pt-6">
+            <!-- Image gallery -->
+            <div class="mx-auto mt-6 max-w-2xl lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8">
+              <div class="overflow-hidden rounded-lg col-span-3">
+                <img src="src\asset\image\foto_self.jpg" alt="Two each of gray, white, and black shirts laying flat." class="w-full h-full object-cover object-center">
+              </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- <div class="w-4/5 xl:w-3/5 mx-auto py-12 sm:py-16">
+      <div class="mx-auto max-w-7xl">
+        <dl class="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
+          <div class="mx-auto flex max-w-xs flex-col gap-y-4">
+            <dt class="text-base leading-7 text-gray-600">Transactions every 24 hours</dt>
+            <dd class="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl">44 million</dd>
+          </div>
+          <div class="mx-auto flex max-w-xs flex-col gap-y-4">
+            <dt class="text-base leading-7 text-gray-600">Assets under holding</dt>
+            <dd class="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl">$119 trillion</dd>
+          </div>
+          <div class="mx-auto flex max-w-xs flex-col gap-y-4">
+            <dt class="text-base leading-7 text-gray-600">New users annually</dt>
+            <dd class="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl">46,000</dd>
+          </div>
+        </dl>
+      </div>
+    </div>    -->
+    
+    <div class="w-4/5 xl:w-3/5 mt-12 mx-auto">
+      <h2 class="text-3xl mb-4 font-bold tracking-tight gradient-text-1 sm:text-4xl">Work Experience</h2>
+      <div>
+              <!-- Item -->
+        <div class="group relative flex gap-x-5">
+          <!-- Icon -->
+          <div class="relative group-last:after:hidden after:absolute after:top-8 after:bottom-2 after:start-3 after:w-px after:-translate-x-[0.5px] after:bg-gray-200 dark:after:bg-neutral-700">
+            <div class="relative z-10 size-6 flex justify-center items-center">
+              <img src="src/asset/image/icbp.png" class="shrink-0 size-10 text-gray-600" width="32" height="32" alt="KBS Image">
+            </div>
+          </div>
+          <!-- End Icon -->
+
+          <!-- Right Content -->
+          <div class="grow pb-8 group-last:pb-0">
+            <h3 class="mb-1 text-xs text-gray-600 ">
+              Aug 2025 - Now
+            </h3>
+
+            <p class="font-semibold text-sm text-gray-800 ">
+              Marketing EDP Staff
+            </p>
+
+            <p class="mt-1 text-sm text-gray-600 ">
+              Collected, cleaned, and consolidated distribution and trade data from multiple regional distributors using advanced Excel functions and database management tools to ensure data consistency and integrity. 
+            </p>
+
+          </div>
+          <!-- End Right Content -->
+        </div>
+        <!-- End Item -->
+        
+        <!-- Item -->
+        <div class="group relative flex gap-x-5">
+          <!-- Icon -->
+          <div class="relative group-last:after:hidden after:absolute after:top-8 after:bottom-2 after:start-3 after:w-px after:-translate-x-[0.5px] after:bg-gray-200 dark:after:bg-neutral-700">
+            <div class="relative z-10 size-6 flex justify-center items-center">
+              <img src="src/asset/image/kbs.jpeg" class="shrink-0 size-10 text-gray-600" width="32" height="32" alt="KBS Image">
+            </div>
+          </div>
+          <!-- End Icon -->
+
+          <!-- Right Content -->
+          <div class="grow pb-8 group-last:pb-0">
+            <h3 class="mb-1 text-xs text-gray-600 ">
+              Dec 2024 - May 2025
+            </h3>
+
+            <p class="font-semibold text-sm text-gray-800 ">
+              UI/UX Designer at Perumda Kerthi Bali Santhi
+            </p>
+
+            <p class="mt-1 text-sm text-gray-600 ">
+              Created intuitive UI/UX designs to streamline internal operations, initiated a scalable and accessible project interface based on user research, and developed a responsive, cross-device website to ensure seamless user experience. 
+            </p>
+
+            <div class="mt-3">
+              <!-- Card -->
+              <a class="block border border-gray-200 rounded-lg hover:shadow-sm focus:outline-none " href="https://www.instagram.com/kbs.digital/">
+                <div class="relative flex items-center overflow-hidden">
+                  <img class="w-32 sm:w-48 h-full absolute inset-0 object-cover rounded-s-lg" src="src\asset\image\KBS-bersama.jpg" alt="Blog Image">
+
+                  <div class="grow p-4 ms-32 sm:ms-48">
+                    <div class="min-h-24 flex flex-col justify-center">
+                      <h3 class="font-semibold text-sm text-gray-800 ">
+                        Kerti Bali Santhi
+                      </h3>
+                      <p class="mt-1 text-sm text-gray-500 ">
+                        Digital Tourism Transformation
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </a>
+              <!-- End Card -->
+            </div>
+          </div>
+          <!-- End Right Content -->
+        </div>
+        <!-- End Item -->
+
+        <!-- Item -->
+        <div class="group relative flex gap-x-5">
+          <!-- Icon -->
+          <div class="relative group-last:after:hidden after:absolute after:top-8 after:bottom-2 after:start-3 after:w-px after:-translate-x-[0.5px] after:bg-gray-200 dark:after:bg-neutral-700">
+            <div class="relative z-10 w-[24px] h-[24px] flex justify-center items-center">
+              <img src="src/asset/image/unud.png" class="object-contain" alt="KBS Image">
+            </div>
+          </div>
+          <!-- End Icon -->
+
+          <!-- Right Content -->
+          <div class="grow pb-8 group-last:pb-0">
+            <h3 class="mb-1 text-xs text-gray-600 ">
+              Jan – Jun 2024 
+            </h3>
+
+            <p class="font-semibold text-sm text-gray-800 ">
+              Assistant Lecture Algorithms and Programming in Information Technology Udayana
+            </p>
+
+            <ul class="list-disc ms-6 mt-3 space-y-1.5">
+              <li class="ps-1 text-sm text-gray-600 ">
+                Mentored 6 students in C programming, guiding projects and discussions to build algorithmic skills and align practicum goals with the curriculum. 
+              </li>
+            </ul>
+          </div>
+          <!-- End Right Content -->
+        </div>
+        <!-- End Item -->
+
+        <!-- Item -->
+        <div class="group relative flex gap-x-5">
+          <!-- Icon -->
+          <div class="relative group-last:after:hidden after:absolute after:top-8 after:bottom-2 after:start-3 after:w-px after:-translate-x-[0.5px] after:bg-gray-200 dark:after:bg-neutral-700">
+            <div class="relative z-10 w-[24px] h-[24px] flex justify-center items-center">
+              <img src="src/asset/image/unud.png" class="object-contain" alt="KBS Image">
+            </div>
+          </div>
+          <!-- End Icon -->
+
+          <!-- Right Content -->
+          <div class="grow pb-8 group-last:pb-0">
+            <h3 class="mb-1 text-xs text-gray-600 ">
+              Sep – Dec 2023
+            </h3>
+
+            <p class="font-semibold text-sm text-gray-800 ">
+              Assistant Lecture Database Concepts Practicum in Information Technology Udayana 
+            </p>
+
+            <ul class="list-disc ms-6 mt-3 space-y-1.5">
+              <li class="ps-1 text-sm text-gray-600 ">
+                Mentored 6 students in SQL and database design, supporting skill-building through projects, discussions, and curriculum-aligned evaluations. 
+              </li>
+            </ul>
+          </div>
+          <!-- End Right Content -->
+        </div>
+        <!-- End Item -->
+      </div>
+      <!-- End Timeline -->
+    </div>
+
+    <div class="w-4/5 xl:w-3/5 mx-auto my-16">
+        <h2 class="text-3xl mb-4 font-bold tracking-tight gradient-text-1 sm:text-4xl">Skills and Abilities</h2>
+
+        <!-- List -->
+        <div class="space-y-3">
+          <dl class="flex flex-col sm:flex-row gap-1">
+            <dt class="min-w-40">
+              <span class="block text-sm text-gray-500 ">Design Tools:</span>
+            </dt>
+            <dd>
+              <ul>
+                <li class="me-1 after:content-[','] inline-flex items-center text-sm text-gray-800 ">
+                  Figma
+                </li>
+                <li class="me-1 after:content-[','] inline-flex items-center text-sm text-gray-800 ">
+                  Adobe Photoshop
+                </li>
+                <li class="me-1 after:content-[','] inline-flex items-center text-sm text-gray-800 ">
+                  Adobe Illustrator
+                </li>
+                <li class="me-1 after:content-[','] inline-flex items-center text-sm text-gray-800 ">
+                  Adobe Premiere Pro
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <dl class="flex flex-col sm:flex-row gap-1">
+            <dt class="min-w-40">
+              <span class="block text-sm text-gray-500 ">Development:</span>
+            </dt>
+            <dd>
+              <ul>
+                <li class="me-1 after:content-[','] inline-flex items-center text-sm text-gray-800 ">
+                  HTML
+                </li>
+                <li class="me-1 after:content-[','] inline-flex items-center text-sm text-gray-800 ">
+                  CSS
+                </li>
+                <li class="me-1 after:content-[','] inline-flex items-center text-sm text-gray-800 ">
+                  Tailwind CSS
+                </li>
+                <li class="me-1 after:content-[','] inline-flex items-center text-sm text-gray-800 ">
+                  React
+                </li>
+                <li class="me-1 after:content-[','] inline-flex items-center text-sm text-gray-800 ">
+                  Flask
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <dl class="flex flex-col sm:flex-row gap-1">
+            <dt class="min-w-40">
+              <span class="block text-sm text-gray-500 ">Collaboration:</span>
+            </dt>
+            <dd>
+              <ul>
+                <li class="me-1 after:content-[','] inline-flex items-center text-sm text-gray-800 ">
+                  Notion
+                </li>
+                <li class="me-1 after:content-[','] inline-flex items-center text-sm text-gray-800 ">
+                  Slack
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <dl class="flex flex-col sm:flex-row gap-1">
+            <dt class="min-w-40">
+              <span class="block text-sm text-gray-500 ">Design Expertise:</span>
+            </dt>
+            <dd>
+              <ul>
+                <li class="me-1 after:content-[','] inline-flex items-center text-sm text-gray-800 ">
+                  UI/UX Design
+                </li>
+                <li class="me-1 after:content-[','] inline-flex items-center text-sm text-gray-800 ">
+                  Design Systems
+                </li>
+                <li class="me-1 after:content-[','] inline-flex items-center text-sm text-gray-800 ">
+                  Custom Illustrations
+                </li>
+                <li class="me-1 after:content-[','] inline-flex items-center text-sm text-gray-800 ">
+                  Responsive Design
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <dl class="flex flex-col sm:flex-row gap-1">
+            <dt class="min-w-40">
+              <span class="block text-sm text-gray-500 ">Soft Skills:</span>
+            </dt>
+            <dd>
+              <ul>
+                <li class="me-1 after:content-[','] inline-flex items-center text-sm text-gray-800 ">
+                  Strong communication
+                </li>
+                <li class="me-1 after:content-[','] inline-flex items-center text-sm text-gray-800 ">
+                  Problem-solving
+                </li>
+                <li class="me-1 after:content-[','] inline-flex items-center text-sm text-gray-800 ">
+                  Attention to detail
+                </li>
+                <li class="me-1 after:content-[','] inline-flex items-center text-sm text-gray-800 ">
+                  Time management
+                </li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
+        <!-- End List -->
+    </div>
+
+    <div class="space-y-5 w-4/5 xl:w-3/5 mx-auto my-16">
+        <h2 class="text-3xl mb-4 font-bold tracking-tight gradient-text-1 sm:text-4xl">Education and Training</h2>
+        <div class="mx-auto grid grid-cols-1 max-w-7xl items-center gap-x-8 gap-y  lg:grid-cols-2">
+            <div>
+                <div class="flex flex-col items-start justify-between p-4 mb-4 border border-gray-300 rounded-md">
+                    <div class="flex items-center gap-x-4 text-xs">
+                    <time datetime="2020-03-16" class="text-gray-500">2021 - 2025</time>
+                    <a href="#" class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Information Technology</a>
+                    </div>
+                    <div class="group relative">
+                    <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                        <a href="#">
+                        <span class="absolute inset-0"></span>
+                        Udayana University
+                        </a>
+                    </h3>
+                    <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">Information Technology Major, Data Science Minor</p>
+                    </div>
+                </div>
+                <div class="flex flex-col items-start justify-between p-4 mb-4 border border-gray-300 rounded-md">
+                    <div class="flex items-center gap-x-4 text-xs">
+                    <time class="text-gray-500">Aug – Oct 2024</time>
+                    </div>
+                    <div class="group relative">
+                    <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                        <a href="#">
+                        <span class="absolute inset-0"></span>
+                        Digistar Class 2024 by Telkom Indonesia
+                        </a>
+                    </h3>
+                    <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">Hipster Mentee</p>
+                    </div>
+                </div>
+                <div class="flex flex-col items-start justify-between p-4 mb-4 border border-gray-300 rounded-md">
+                  <div class="flex items-center gap-x-4 text-xs">
+                    <time class="text-gray-500">Mar – May 2024</time>
+                  </div>
+                  <div class="group relative">
+                  <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                      <a href="#">
+                      <span class="absolute inset-0"></span>
+                      Sekolah Beta Intensif Bali by Gerakan Nasional 1000 Startup Digital Kominfo
+                      </a>
+                  </h3>
+                  <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">Hipster Mentee</p>
+                  </div>
+                </div>
+                <div class="flex flex-col items-start justify-between p-4 mb-4 border border-gray-300 rounded-md">
+                  <div class="flex items-center gap-x-4 text-xs">
+                    <time class="text-gray-500">2018 - 2021</time>
+                  </div>
+                  <div class="group relative">
+                  <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                      <a href="#">
+                      <span class="absolute inset-0"></span>
+                      SMAN 3 Denpasar
+                      </a>
+                  </h3>
+                  <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">Mathematics and Science</p>
+                  </div>
+                </div>
+            </div>
+            <div>
+                <p class="mt-5 text-sm leading-6 text-gray-600">I'm passionate about transforming ideas into impactful digital experiences through code, data, and design. With hands-on experience in programming, data analysis, and user-centered design, I specialize in building functional solutions backed by insight and creativity. My skill set spans front-end design with tools like Figma, data exploration using Python and SQL, and crafting seamless user experiences that balance aesthetics and usability. I thrive in collaborative environments, enjoy solving real-world problems, and continuously seek to grow as a developer and designer in the tech space.</p>
+                <!-- Progress -->
+                <div class="my-8">
+                    <div class="mb-2 flex justify-between items-center">
+                    <h3 class="text-sm font-semibold text-gray-800">Technical Knowledge</h3>
+                    <span class="text-sm text-gray-800">75%</span>
+                    </div>
+                    <div class="flex w-full h-2 bg-gray-200 rounded-full overflow-hidden " role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                    <div class="flex flex-col justify-center rounded-full overflow-hidden bg-blue-600 text-xs text-white text-center whitespace-nowrap transition duration-500 " style="width: 75%"></div>
+                    </div>
+                </div>
+                <!-- End Progress -->
+
+                <!-- Progress -->
+                <div class="my-8">
+                    <div class="mb-2 flex justify-between items-center">
+                    <h3 class="text-sm font-semibold text-gray-800">Programming Skills</h3>
+                    <span class="text-sm text-gray-800">70%</span>
+                    </div>
+                    <div class="flex w-full h-2 bg-gray-200 rounded-full overflow-hidden " role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+                    <div class="flex flex-col justify-center rounded-full overflow-hidden bg-blue-600 text-xs text-white text-center whitespace-nowrap transition duration-500 " style="width: 70%"></div>
+                    </div>
+                </div>
+                <!-- End Progress -->
+
+                <!-- Progress -->
+                <div class="my-8">
+                    <div class="mb-2 flex justify-between items-center">
+                    <h3 class="text-sm font-semibold text-gray-800">Data Science</h3>
+                    <span class="text-sm text-gray-800">85%</span>
+                    </div>
+                    <div class="flex w-full h-2 bg-gray-200 rounded-full overflow-hidden " role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+                    <div class="flex flex-col justify-center rounded-full overflow-hidden bg-blue-600 text-xs text-white text-center whitespace-nowrap transition duration-500 " style="width: 85%"></div>
+                    </div>
+                </div>
+                <!-- End Progress -->
+
+                <!-- Progress -->
+                <div class="my-8">
+                    <div class="mb-2 flex justify-between items-center">
+                    <h3 class="text-sm font-semibold text-gray-800">UI/UX Design</h3>
+                    <span class="text-sm text-gray-800">80%</span>
+                    </div>
+                    <div class="flex w-full h-2 bg-gray-200 rounded-full overflow-hidden " role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                    <div class="flex flex-col justify-center rounded-full overflow-hidden bg-blue-600 text-xs text-white text-center whitespace-nowrap transition duration-500 " style="width: 80%"></div>
+                    </div>
+                </div>
+                <!-- End Progress -->
+            </div>
+        </div>
+        
+    </div> 
+
+
+    <footer class="w-4/5 sm:w-3/5 relative mx-auto ">
+      <div class="py-16 w-full max-w-7xl mx-auto">
+        <hr class="my-8 border-gray-300">
+        
+        <div class="lg:flex lg:items-end lg:justify-between">
+          <ul class="mb-5 flex flex-wrap justify-center items-center gap-6 md:gap-8 lg:justify-end lg:gap-12">
+            <li>
+              <a
+                href="https://www.linkedin.com/in/picessakresna/"
+                rel="noreferrer"
+                target="_blank"
+                class="text-teal-700 transition hover:text-teal-700/75"
+              >
+                <span class="sr-only">LinkedIn</span>
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 30 30">
+                  <path d="M24,4H6C4.895,4,4,4.895,4,6v18c0,1.105,0.895,2,2,2h18c1.105,0,2-0.895,2-2V6C26,4.895,25.105,4,24,4z M10.954,22h-2.95 v-9.492h2.95V22z M9.449,11.151c-0.951,0-1.72-0.771-1.72-1.72c0-0.949,0.77-1.719,1.72-1.719c0.948,0,1.719,0.771,1.719,1.719 C11.168,10.38,10.397,11.151,9.449,11.151z M22.004,22h-2.948v-4.616c0-1.101-0.02-2.517-1.533-2.517 c-1.535,0-1.771,1.199-1.771,2.437V22h-2.948v-9.492h2.83v1.297h0.04c0.394-0.746,1.356-1.533,2.791-1.533 c2.987,0,3.539,1.966,3.539,4.522V22z"></path>
+                </svg>
+              </a>
+            </li>
+  
+            <li>
+              <a
+                href="https://github.com/picessakresna"
+                rel="noreferrer"
+                target="_blank"
+                class="text-teal-700 transition hover:text-teal-700/75"
+              >
+                <span class="sr-only">Github</span>
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 30 30">
+                  <path d="M15,3C8.373,3,3,8.373,3,15c0,5.623,3.872,10.328,9.092,11.63C12.036,26.468,12,26.28,12,26.047v-2.051 c-0.487,0-1.303,0-1.508,0c-0.821,0-1.551-0.353-1.905-1.009c-0.393-0.729-0.461-1.844-1.435-2.526 c-0.289-0.227-0.069-0.486,0.264-0.451c0.615,0.174,1.125,0.596,1.605,1.222c0.478,0.627,0.703,0.769,1.596,0.769 c0.433,0,1.081-0.025,1.691-0.121c0.328-0.833,0.895-1.6,1.588-1.962c-3.996-0.411-5.903-2.399-5.903-5.098 c0-1.162,0.495-2.286,1.336-3.233C9.053,10.647,8.706,8.73,9.435,8c1.798,0,2.885,1.166,3.146,1.481C13.477,9.174,14.461,9,15.495,9 c1.036,0,2.024,0.174,2.922,0.483C18.675,9.17,19.763,8,21.565,8c0.732,0.731,0.381,2.656,0.102,3.594 c0.836,0.945,1.328,2.066,1.328,3.226c0,2.697-1.904,4.684-5.894,5.097C18.199,20.49,19,22.1,19,23.313v2.734 c0,0.104-0.023,0.179-0.035,0.268C23.641,24.676,27,20.236,27,15C27,8.373,21.627,3,15,3z"></path>
+                </svg>
+              </a>
+            </li>
+  
+            <li>
+              <a
+                href="https://dribbble.com/picessakresna"
+                rel="noreferrer"
+                target="_blank"
+                class="text-teal-700 transition hover:text-teal-700/75"
+              >
+                <span class="sr-only">Dribbble</span>
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 30 30">
+                  <path d="M 16 4 C 9.382813 4 4 9.382813 4 16 C 4 22.617188 9.382813 28 16 28 C 22.617188 28 28 22.617188 28 16 C 28 9.382813 22.617188 4 16 4 Z M 16 6 C 18.535156 6 20.832031 6.953125 22.59375 8.5 C 22.40625 8.761719 22.152344 9.078125 21.75 9.46875 C 20.894531 10.296875 19.527344 11.292969 17.4375 12.0625 C 16.023438 9.449219 14.636719 7.484375 13.71875 6.25 C 14.449219 6.082031 15.214844 6 16 6 Z M 11.75 6.9375 C 12.570313 8.011719 14.03125 10.003906 15.5 12.65625 C 11.433594 13.734375 7.703125 13.871094 6.21875 13.875 C 6.882813 10.785156 8.960938 8.242188 11.75 6.9375 Z M 23.96875 9.96875 C 25.1875 11.582031 25.945313 13.578125 26 15.75 C 25.109375 15.550781 23.796875 15.355469 22.09375 15.34375 C 21.207031 15.339844 20.203125 15.402344 19.125 15.53125 C 18.875 14.960938 18.605469 14.410156 18.34375 13.875 C 20.585938 13.015625 22.113281 11.882813 23.125 10.90625 C 23.46875 10.570313 23.738281 10.261719 23.96875 9.96875 Z M 16.40625 14.46875 C 16.636719 14.933594 16.871094 15.410156 17.09375 15.90625 C 12.820313 17.089844 9.75 20.714844 8.4375 22.53125 C 6.925781 20.78125 6 18.5 6 16 C 6 15.957031 6 15.917969 6 15.875 C 7.351563 15.890625 11.648438 15.796875 16.40625 14.46875 Z M 22.09375 17.3125 C 23.878906 17.3125 25.113281 17.5625 25.84375 17.75 C 25.378906 20.414063 23.875 22.699219 21.75 24.1875 C 21.351563 21.796875 20.695313 19.523438 19.90625 17.4375 C 20.695313 17.359375 21.441406 17.3125 22.09375 17.3125 Z M 17.875 17.78125 C 18.773438 20.0625 19.527344 22.566406 19.90625 25.21875 C 18.710938 25.722656 17.382813 26 16 26 C 13.707031 26 11.589844 25.230469 9.90625 23.9375 C 10.933594 22.53125 13.953125 18.789063 17.875 17.78125 Z"></path>
+                </svg>
+              </a>
+            </li>
+  
+            <li>
+              <a
+                href="https://picessakresna.medium.com/"
+                rel="noreferrer"
+                target="_blank"
+                class="text-teal-700 transition hover:text-teal-700/75"
+              >
+                <span class="sr-only">Medium</span>
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 30 30">
+                  <path d="M8.5 7A8.5 8.5 0 108.5 24 8.5 8.5 0 108.5 7zM22 8A4 7.5 0 1022 23 4 7.5 0 1022 8zM28.5 9A1.5 6.5 0 1028.5 22 1.5 6.5 0 1028.5 9z"></path>
+                </svg>
+              </a>
+            </li>
+          </ul>
+  
+          <ul class="mb-5 flex flex-wrap justify-center items-center gap-6 md:gap-8 lg:justify-end lg:gap-12">
+            <li>
+              <a class="text-gray-700 transition hover:text-gray-700/75" href="index.html"> Home </a>
+            </li>
+            
+            <li>
+              <a class="text-gray-700 transition hover:text-gray-700/75" href="about.html"> About </a>
+            </li>
+  
+            <li>
+              <a class="text-gray-700 transition hover:text-gray-700/75" href="more.html"> More </a>
+            </li>
+            
+            <li>
+              <a class="text-gray-700 transition hover:text-gray-700/75" href="https://drive.google.com/file/d/1pXqfGqkPpsyGitsN66lClU1j0ujAFAkv/view?usp=sharing"> Download CV </a>
+            </li>
+  
+          </ul>
+        </div>
+  
+        <div class="lg:flex lg:items-end lg:justify-between">
+          <p class="mt-12 text-center text-sm text-gray-500 lg:text-right">
+            Copyright &copy; 2024 PicessaKresna.  All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="src/js/other.js"></script>
+</body>
+</html>

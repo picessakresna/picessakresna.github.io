@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.indicator{
+  transition: left .4s;
+}
+
+@layer components {
+  .gradient-text-1 {
+    background: linear-gradient(to right, #969699, #1E1E22);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .gradient-text-2 {
+    background: linear-gradient(to right, #C41740, #EA9C28);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .gradient-text-3 {
+    background: linear-gradient(to right, #005984, #54C1FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}

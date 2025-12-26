@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Picessa Kresna | Portofolio Website</title>
+  <link href="src/output.css" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.1/dist/cdn.min.js"></script>
+    <link rel="icon" href="src/asset/icons/iconlogo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+</head>
+<body class="font-inter"> 
+
+  
+  <header>
+    <div class="mt-16 mx-4 flex justify-center 2xl:space-x-80 lg:space-x-20 sm:space-x-10">
+
+      <div class="h-14 w-14 text-gray-500 shadow-[0_0_30px_0_rgba(0,0,0,0.15)] rounded-full ">
+            <div class="flex justify-center p-4">
+                <button onclick="goHome()" class="text-gray-500 relative focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                        <path fill-rule="evenodd" d="M7.72 12.53a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 1 1 1.06 1.06L9.31 12l6.97 6.97a.75.75 0 1 1-1.06 1.06l-7.5-7.5Z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+            </div>
+      </div>
+
+      <div class="grid grid-flow-col text-center w-[52rem]">
+      </div>
+      
+      <div class="burger h-14 w-14 text-gray-500 shadow-[0_0_30px_0_rgba(0,0,0,0.15)] rounded-full ">
+        <div class="flex justify-center">
+          <div class="relative p-3 sm:max-w-xl mx-auto">
+            <nav x-data="{ isOpen: false }">
+              <!-- Dropdown toggle button -->
+              <button class="text-gray-500 w-8 h-6 relative focus:outline-none" @click="isOpen = !isOpen">
+                <span class="sr-only">Open main menu</span>
+                <div class="block w-5 absolute left-1/2 top-[14px] transform -translate-x-1/2 -translate-y-1/2">
+                  <span aria-hidden="true" class="block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out" :class="{'rotate-45': isOpen,' -translate-y-1.5': !isOpen }"></span>
+                  <span aria-hidden="true" class="block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out" :class="{'opacity-0': isOpen } "></span>
+                  <span aria-hidden="true" class="block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out" :class="{'-rotate-45': isOpen, ' translate-y-1.5': !isOpen}"></span>
+                </div>
+              </button>
+              <!-- Dropdown menu -->
+              <div x-show="isOpen"
+                  @click.away="isOpen = false"
+                  x-transition:enter="transition ease-out duration-300"
+                  x-transition:enter-start="opacity-0 scale-90"
+                  x-transition:enter-end="opacity-100 scale-100"
+                  x-transition:leave="transition ease-in duration-100"
+                  x-transition:leave-start="opacity-100 scale-100"
+                  x-transition:leave-end="opacity-0 scale-90"
+                  class="absolute right-0 z-20 w-48 p-4 mt-8 origin-top-right bg-white rounded-md shadow-[0_0_30px_0_rgba(0,0,0,0.15)] "
+              >
+                  <a href="about.html" class="flex items-center gap-2 px-3 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100 ">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                      <path d="M10 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM3.465 14.493a1.23 1.23 0 0 0 .41 1.412A9.957 9.957 0 0 0 10 18c2.31 0 4.438-.784 6.131-2.1.43-.333.604-.903.408-1.41a7.002 7.002 0 0 0-13.074.003Z" />
+                    </svg>
+                    <span class="mx-1">
+                        About
+                    </span>
+                  </a>
+
+                  <a href="more.html" class="flex items-center gap-2 p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform  hover:bg-gray-100  d">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                      <path d="M12 4.467c0-.405.262-.75.559-1.027.276-.257.441-.584.441-.94 0-.828-.895-1.5-2-1.5s-2 .672-2 1.5c0 .362.171.694.456.953.29.265.544.6.544.994a.968.968 0 0 1-1.024.974 39.655 39.655 0 0 1-3.014-.306.75.75 0 0 0-.847.847c.14.993.242 1.999.306 3.014A.968.968 0 0 1 4.447 10c-.393 0-.729-.253-.994-.544C3.194 9.17 2.862 9 2.5 9 1.672 9 1 9.895 1 11s.672 2 1.5 2c.356 0 .683-.165.94-.441.276-.297.622-.559 1.027-.559a.997.997 0 0 1 1.004 1.03 39.747 39.747 0 0 1-.319 3.734.75.75 0 0 0 .64.842c1.05.146 2.111.252 3.184.318A.97.97 0 0 0 10 16.948c0-.394-.254-.73-.545-.995C9.171 15.693 9 15.362 9 15c0-.828.895-1.5 2-1.5s2 .672 2 1.5c0 .356-.165.683-.441.94-.297.276-.559.622-.559 1.027a.998.998 0 0 0 1.03 1.005c1.337-.05 2.659-.162 3.961-.337a.75.75 0 0 0 .644-.644c.175-1.302.288-2.624.337-3.961A.998.998 0 0 0 16.967 12c-.405 0-.75.262-1.027.559-.257.276-.584.441-.94.441-.828 0-1.5-.895-1.5-2s.672-2 1.5-2c.362 0 .694.17.953.455.265.291.601.545.995.545a.97.97 0 0 0 .976-1.024 41.159 41.159 0 0 0-.318-3.184.75.75 0 0 0-.842-.64c-1.228.164-2.473.271-3.734.319A.997.997 0 0 1 12 4.467Z" />
+                    </svg>
+                    <span class="mx-1">
+                        More
+                    </span>
+                  </a>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="mt-4 mx-4 mb-12 h-14 flex justify-center 2xl:space-x-80 lg:space-x-20 sm:space-x-10">
+      <div class="shadow-[0_0_30px_0_rgba(0,0,0,0.15)] grid grid-flow-col text-center w-[52rem] rounded-full text-gray-500 bg-white [transform:translateZ(0)]">
+        <nav class="relative w-full rounded-full p-2">
+          <div class="relative h-full">
+            <div data-slider class="absolute h-full w-[var(--selected-item-width)] translate-x-[var(--selected-item-position)] rounded-full bg-gray-100 transition-[width,transform] duration-300 "></div>
+              <ul class="relative flex items-center space-x-4 h-full">
+                <li class="flex-1">
+                  <button type="button" id="tabs-main" class="w-full text-center text-slate-900 hover:text-slate-600 rounded-sm font-bold text-lg transition-colors focus-visible:ring-2 duration-200 focus:outline-none">Main</button>
+                </li>
+                <li class="flex-1">
+                  <button type="button" id="tabs-dev" class="w-full text-center text-slate-900 hover:text-slate-600 rounded-sm text-lg transition-colors focus-visible:ring-2 duration-200 focus:outline-none">Develop</button>
+                </li>
+                <li class="flex-1">
+                  <button type="button" id="tabs-data" class="w-full text-center text-slate-900 hover:text-slate-600 rounded-sm text-lg transition-colors focus-visible:ring-2 duration-200 focus:outline-none">Data</button>
+                </li>
+              </ul>
+          </div>
+        </nav>  
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <section id="container-main" class="w-4/5 xl:w-3/5 mx-auto">
+    <div class="relative flex flex-col items-center mb-8">
+      <!-- Background Image -->
+      <div class="absolute inset-0 bg-[url('../src/asset/image/background-black.svg')] bg-cover bg-center opacity-20"></div>
+      
+      <!-- Content -->
+      <div class="relative mt-8">
+        <h1 class="text-5xl sm:text-7xl font-bold gradient-text-1 leading-normal text-center">Halo, I'm Picessa Kresna.</h1>
+      </div>
+      <div class="relative mt-8">
+        <p class="text-lg font-medium text-center" style="color: #5E5E63;">I explore the world of Code, Design, and Data to build meaningful digital experiences 👻.</p>
+      </div>
+      
+      <div class="relative mt-12 flex flex-row gap-4">
+        <!-- <a href="" type="button" class="px-8 py-3 flex items-center justify-center rounded-full shadow-md transition text-center hover:scale-105 focus:outline-none focus:ring" style="background-color: #161513; color: white;">Portofolio</a> -->
+        <a href="https://drive.google.com/file/d/1pXqfGqkPpsyGitsN66lClU1j0ujAFAkv/view?usp=sharing" target="_blank" rel="noopener" type="button" class="px-8 py-3 flex items-center justify-center rounded-full shadow-md text-center border border-gray-600 font-medium transition hover:scale-105 focus:outline-none focus:ring" style="background-color: white">Download CV</a>
+      </div>
+    </div>
+
+    <!-- Recent Project -->
+    <div class="bg-white">
+      <div class="mx-auto max-w-7xl py-8 sm:py-12">
+        <h2 class="text-2xl font-bold text-gray-900 pb-4">Highlight Projects</h2>
+        <div class="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
+          <svg viewBox="0 0 1024 1024" class="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2 lg:translate-y-0" aria-hidden="true">
+            <circle cx="512" cy="512" r="512" fill="gray" />
+          </svg>
+          <div class="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
+            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">WisataGo</h2>
+            <p class="mt-6 text-lg leading-8 text-gray-300">An AR-powered travel app that enhances exploration by overlaying real-time information and interactive guides, making every journey informative and immersive.</p>
+            <div class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
+              <a href="https://drive.google.com/file/d/1LPwotUN-FmwnIx_s6HRDTqh_gHFxkw9v/view?usp=drive_link" target="_blank" rel="noopener" class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Learn More <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+          <div class="relative mt-16 h-80 lg:mt-8">
+            <img class="absolute left-0 top-0 w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10" src="src\asset\image\wisatago-cover.png" alt="App screenshot" width="1824" height="1080">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features -->
+    <div class="max-w-7xl py-10 lg:py-14 mx-auto">
+      <div class="grid md:grid-cols-2 gap-12">
+      <div class="lg:w-3/4">
+        <h2 class="text-3xl text-gray-800 font-bold lg:text-4xl ">
+          Bring ideas to life by combining design and data-driven insights to create solutions
+        </h2>
+      </div>
+      <div class="space-y-6 lg:space-y-10">
+        <div class="flex gap-x-5 sm:gap-x-8">
+          <span class="shrink-0 inline-flex justify-center items-center size-[46px] rounded-full border border-gray-200 bg-white text-gray-800 shadow-sm mx-auto ">
+            <svg class="shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </span>
+          <div class="grow">
+            <h3 class="text-base sm:text-lg font-semibold text-gray-800 ">
+              Expertise in Data and Design
+            </h3>
+            <p class="mt-1 text-gray-600 ">
+              Proficient in data analysis and UI/UX design, leveraging critical thinking to transform insights into user-friendly solutions.
+            </p>
+          </div>
+        </div>
+        <div class="flex gap-x-5 sm:gap-x-8">
+          <span class="shrink-0 inline-flex justify-center items-center size-[46px] rounded-full border border-gray-200 bg-white text-gray-800 shadow-sm mx-auto ">
+            <svg class="shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5Z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></svg>
+          </span>
+          <div class="grow">
+            <h3 class="text-base sm:text-lg font-semibold text-gray-800 ">
+              Team-oriented and driven
+            </h3>
+            <p class="mt-1 text-gray-600 ">
+              Collaborative and motivated, thriving in team settings to develop innovative solutions that make a meaningful impact.
+            </p>
+          </div>
+        </div>
+        <div class="flex gap-x-5 sm:gap-x-8">
+          <span class="shrink-0 inline-flex justify-center items-center size-[46px] rounded-full border border-gray-200 bg-white text-gray-800 shadow-sm mx-auto ">
+            <svg class="shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z"/></svg>
+          </span>
+          <div class="grow">
+            <h3 class="text-base sm:text-lg font-semibold text-gray-800 ">
+              Simple
+            </h3>
+            <p class="mt-1 text-gray-600 ">
+              Eeager to learn more and transform insights into impactful solutions
+            </p>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <!-- Features -->
+    <div class="max-w-7xl py-10 lg:py-14 mx-auto">
+      <!-- Grid -->
+      <div class="grid items-center lg:grid-cols-12 gap-6 lg:gap-12">
+        <div class="lg:col-span-4">
+          <!-- Stats -->
+          <div class="lg:pe-6 xl:pe-12">
+            <p class="text-6xl font-bold gradient-text-1">
+              5+ Years
+            </p>
+            <p class="mt-2 sm:mt-3 text-gray-500 ">of experience in technology and design fields</p>
+          </div>
+          <!-- End Stats -->
+        </div>
+        <!-- End Col -->
+
+        <div class="lg:col-span-8 relative lg:before:absolute lg:before:top-0 lg:before:-start-12 lg:before:w-px lg:before:h-full lg:before:bg-gray-200 lg:before:">
+          <div class="grid gap-6 grid-cols-2 md:grid-cols-4 lg:grid-cols-3 sm:gap-8">
+            <!-- Stats -->
+            <div>
+              <p class="text-3xl font-semibold gradient-text-1">90% project completion</p>
+              <p class="mt-1 text-gray-500 ">Consistently meet deadlines and exceed expectations</p>
+            </div>
+            <!-- End Stats -->
+
+            <!-- Stats -->
+            <div>
+              <p class="text-3xl font-semibold gradient-text-1">4+ successful projects</p>
+              <p class="mt-1 text-gray-500 ">including web applications, design portfolios, and data analyst</p>
+            </div>
+            <!-- End Stats -->
+
+            <!-- Stats -->
+            <div>
+              <p class="text-3xl font-semibold gradient-text-1">100% commitment</p>
+              <p class="mt-1 text-gray-500 ">to ongoing learning and growth in tech and design</p>
+            </div>
+            <!-- End Stats -->
+          </div>
+        </div>
+        <!-- End Col -->
+      </div>
+      <!-- End Grid -->
+    </div>
+    <!-- End Features -->
+
+    <div class="bg-white py-12 sm:py-16">
+      <div class="mx-auto grid max-w-7xl gap-x-8 gap-y-20 xl:grid-cols-3">
+        <div class="max-w-2xl">
+          <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">About Me</h2>
+          <p class="mt-6 text-lg leading-8 text-gray-600">Hi! I’m Picessa Kresna, a passionate developer and designer."</p>
+          <a href="about.html" class="mt-6 inline-block px-6 py-2 rounded-full bg-black text-white font-semibold shadow hover:bg-gray-800 transition">See More</a>
+        </div>
+        <ul role="list" class="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
+          <li>
+            <div class="flex items-center gap-x-6 text-lg leading-8 text-gray-600">
+              <p>I focus on creating digital solutions that are both functional and visually appealing. Driven by curiosity and a love for problem-solving, I constantly seek to learn and apply new skills in my work.</p>
+            </div>
+          </li>
+          <li>
+            <div class="flex items-center gap-x-6 text-lg leading-8 text-gray-600">
+              <p>Experienced in organizational leadership, committee roles, and competitions related to business ideas and graphic design. Combining creativity with technical expertise to create impactful digital experiences.</p>
+            </div>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+
+    <div class="bg-white">
+      <div class="pt-6">
+        <!-- Image gallery -->
+        <div class="mx-auto mt-6 max-w-2xl lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8">
+          <div class="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-lg lg:block">
+            <img src="src\asset\image\image_3.JPG" alt="Two each of gray, white, and black shirts laying flat." class="h-full w-full object-cover object-center">
+          </div>
+          <div class="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
+            <div class="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
+              <img src="src\asset\image\image_4.JPG" alt="Model wearing plain black basic tee." class="h-full w-full object-cover object-center">
+            </div>
+            <div class="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
+              <img src="src\asset\image\image_1.JPG" alt="Model wearing plain gray basic tee." class="h-full w-full object-cover object-center">
+            </div>
+          </div>
+          <div class="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg">
+            <img src="src\asset\image\image_2.JPG" alt="Model wearing plain white basic tee." class="h-full w-full object-cover object-center">
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Develop Container -->
+  <section id="container-dev" class="w-4/5 xl:w-3/5 mx-auto">
+    <div class="relative flex flex-col items-center mb-8">
+      <!-- Background Image -->
+      <div class="absolute inset-0 bg-[url('../src/asset/image/background-blue.svg')] bg-cover bg-center opacity-20"></div>
+      
+      <!-- Content -->
+      <div class="relative mt-8">
+        <h1 class="text-5xl sm:text-7xl font-bold gradient-text-3 pb-2 leading-normal text-center">Develop Project</h1>
+      </div>
+      <div class="relative mt-8">
+        <p class="text-lg font-medium text-center" style="color: #5E5E63;">On this page, I showcase my development projects that combine data and design while continuously learning and improving my skills.</p>
+      </div>
+    </div>
+    
+    <!-- Ecosky  -->
+    <div class="bg-white">
+      <div class="mx-auto max-w-7xl py-8 sm:px-6 sm:py-12 lg:px-8">
+        <div class="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
+          <svg viewBox="0 0 1024 1024" class="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2 lg:translate-y-0" aria-hidden="true">
+            <circle cx="512" cy="512" r="512" fill="gray" />
+          </svg>
+          <div class="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
+            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Ecosky</h2>
+            <p class="mt-6 text-lg leading-8 text-gray-300">User-friendly mobile application designed to simplify the process of discovering and booking authentic local experiences in Bali.</p>
+            <div class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
+              <a href="https://drive.google.com/file/d/1jmiUZS7JFfSuLdpTfWbYV-3TnlTExCez/view?usp=drive_link" target="_blank" rel="noopener" class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Learn More <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+          <div class="relative mt-16 h-80 lg:mt-8">
+            <img class="absolute left-0 top-0 w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10" src="src\asset\image\ecosky_cover.png" alt="App screenshot" width="1824" height="1080">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bali Experience -->
+    <div class="bg-white">
+      <div class="mx-auto max-w-7xl py-8 sm:px-6 sm:py-12 lg:px-8">
+        <div class="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
+          <svg viewBox="0 0 1024 1024" class="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2 lg:translate-y-0" aria-hidden="true">
+            <circle cx="512" cy="512" r="512" fill="gray" />
+          </svg>
+          <div class="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
+            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Bali Experience</h2>
+            <p class="mt-6 text-lg leading-8 text-gray-300">User-friendly website designed to simplify the process of scheduling doctor appointments.</p>
+            <div class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
+              <a href="https://drive.google.com/file/d/1o_HLYWaNODyYfaJp8FpvhZTKG-rASZtM/view?usp=drive_link" target="_blank" rel="noopener" class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Learn More <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+          <div class="relative mt-16 h-80 lg:mt-8">
+            <img class="absolute left-0 top-0 w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10" src="src\asset\image\BaliX_cover.png" alt="App screenshot" width="1824" height="1080">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Digistar -->
+    <div class="bg-white">
+      <div class="mx-auto max-w-7xl py-8 sm:px-6 sm:py-12 lg:px-8">
+        <div class="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
+          <svg viewBox="0 0 1024 1024" class="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2 lg:translate-y-0" aria-hidden="true">
+            <circle cx="512" cy="512" r="512" fill="gray" />
+          </svg>
+          <div class="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
+            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Redesign Pijar Mahir</h2>
+            <p class="mt-6 text-lg leading-8 text-gray-300">Aims to enhance user experience and engagement by creating a more intuitive interface.</p>
+            <div class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
+              <a href="https://drive.google.com/file/d/1suG3Lpvg-zT28mVqMxPbpTHIMKHetB_g/view?usp=drive_link" target="_blank" rel="noopener" class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Learn More <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+          <div class="relative mt-16 h-80 lg:mt-8">
+            <img class="absolute left-0 top-0 w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10" src="src\asset\image\digiclass-cover.png" alt="App screenshot" width="1824" height="1080">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sekolah Beta -->
+    <div class="bg-white">
+      <div class="mx-auto max-w-7xl py-8 sm:px-6 sm:py-12 lg:px-8">
+        <div class="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
+          <svg viewBox="0 0 1024 1024" class="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2 lg:translate-y-0" aria-hidden="true">
+            <circle cx="512" cy="512" r="512" fill="gray" />
+          </svg>
+          <div class="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
+            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">WisataGo</h2>
+            <p class="mt-6 text-lg leading-8 text-gray-300">An AR-powered travel app that enhances exploration by overlaying real-time information and interactive guides, making every journey informative and immersive.</p>
+            <div class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
+              <a href="https://drive.google.com/file/d/1LPwotUN-FmwnIx_s6HRDTqh_gHFxkw9v/view?usp=drive_link" target="_blank" rel="noopener" class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Learn More <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+          <div class="relative mt-16 h-80 lg:mt-8">
+            <img class="absolute left-0 top-0 w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10" src="src\asset\image\wisatago-cover.png" alt="App screenshot" width="1824" height="1080">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Good Gaming Shop -->
+    <div class="bg-white">
+      <div class="mx-auto max-w-7xl py-8 sm:px-6 sm:py-12 lg:px-8">
+        <div class="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
+          <svg viewBox="0 0 1024 1024" class="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2 lg:translate-y-0" aria-hidden="true">
+            <circle cx="512" cy="512" r="512" fill="gray" />
+          </svg>
+          <div class="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
+            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">GoodGamingShop Recommend</h2>
+            <p class="mt-6 text-lg leading-8 text-gray-300">An AR-powered travel app that enhances exploration by overlaying real-time information and interactive guides, making every journey informative and immersive.</p>
+            <div class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
+              <a href="https://drive.google.com/file/d/1ns8drnjWhM7vkWbzOXKBZahKhsxB58TW/view?usp=drive_link" target="_blank" rel="noopener" class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Learn More <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+          <div class="relative mt-16 h-80 lg:mt-8">
+            <img class="absolute left-0 top-0 w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10" src="src\asset\image\ggg.png" alt="App screenshot" width="1824" height="1080">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RevoU -->
+    <div class="bg-white">
+      <div class="mx-auto max-w-7xl py-8 sm:px-6 sm:py-12 lg:px-8">
+        <div class="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
+          <svg viewBox="0 0 1024 1024" class="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2 lg:translate-y-0" aria-hidden="true">
+            <circle cx="512" cy="512" r="512" fill="gray" />
+          </svg>
+          <div class="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
+            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">HealthAppoint</h2>
+            <p class="mt-6 text-lg leading-8 text-gray-300">User-friendly website designed to simplify the process of scheduling doctor appointments.</p>
+            <div class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
+              <a href="https://drive.google.com/file/d/1TzlG5LxdAfXvboohbbQ7rlIOIFRmRC5E/view?usp=drive_link" target="_blank" rel="noopener" class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Learn More <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+          <div class="relative mt-16 h-80 lg:mt-8">
+            <img class="absolute left-0 top-0 w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10" src="src\asset\image\revou-cover.png" alt="App screenshot" width="1824" height="1080">
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Data Container -->
+  <section id="container-data" class="w-4/5 xl:w-3/5 mx-auto">
+    <div class="relative flex flex-col items-center mb-8">
+      <!-- Background Image -->
+      <div class="absolute inset-0 bg-[url('../src/asset/image/background-yellow.svg')] bg-cover bg-center opacity-20"></div>
+      
+      <!-- Content -->
+      <div class="relative mt-8">
+        <h1 class="text-5xl sm:text-7xl font-bold gradient-text-2 pb-2 leading-normal text-center">Data Project</h1>
+      </div>
+      <div class="relative mt-8">
+        <p class="text-lg font-medium text-center" style="color: #5E5E63;">On this page, I highlight my data projects that demonstrate my ability to analyze, visualize, and drive insights from data</p>
+      </div>
+    </div>
+
+    <!-- Stock Market -->
+    <div class="bg-white">
+      <div class="mx-auto max-w-7xl py-8 sm:px-6 sm:py-12 lg:px-8">
+        <div class="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
+          <svg viewBox="0 0 1024 1024" class="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2 lg:translate-y-0" aria-hidden="true">
+            <circle cx="512" cy="512" r="512" fill="gray" />
+          </svg>
+          <div class="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
+            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Stock Market Prediction</h2>
+            <p class="mt-6 text-lg leading-8 text-gray-300">Project that utilizes LSTM and GRU models to forecast stock prices based on financial data from 2019 to 2024, offering insights into market trends and data-driven decision-making.</p>
+            <div class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
+              <a href="https://drive.google.com/file/d/1ekJBs6DYL_AfAu8A73Dff2czo2CcUThs/view?usp=drive_link" target="_blank" rel="noopener" class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Learn More <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+          <div class="relative mt-16 h-80 lg:mt-8">
+            <img class="absolute left-0 top-0 w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10" src="src\asset\image\stockmarket.png" alt="App screenshot" width="1824" height="1080">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dicoding Project -->
+    <div class="bg-white">
+      <div class="mx-auto max-w-7xl py-8 sm:px-6 sm:py-12 lg:px-8">
+        <div class="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
+          <svg viewBox="0 0 1024 1024" class="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2 lg:translate-y-0" aria-hidden="true">
+            <circle cx="512" cy="512" r="512" fill="gray" />
+          </svg>
+          <div class="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
+            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Dicoding Project</h2>
+            <p class="mt-6 text-lg leading-8 text-gray-300">Variety of tasks, cleaning and analyzing data to uncover key trends, while creating interactive dashboards to present actionable insights and improve decision-making across different projects.</p>
+            <div class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
+              <a href="https://drive.google.com/file/d/1VwgZswUtU_cBB4GRiLr6r1_2cxo9DA8l/view?usp=drive_link" target="_blank" rel="noopener" class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Learn More <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+          <div class="relative mt-16 h-80 lg:mt-8">
+            <img class="absolute left-0 top-0 w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10" src="src\asset\image\dicoding_cover.png" alt="App screenshot" width="1824" height="1080">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Accident Prediction -->
+    <div class="bg-white">
+      <div class="mx-auto max-w-7xl py-8 sm:px-6 sm:py-12 lg:px-8">
+        <div class="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
+          <svg viewBox="0 0 1024 1024" class="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2 lg:translate-y-0" aria-hidden="true">
+            <circle cx="512" cy="512" r="512" fill="gray" />
+          </svg>
+          <div class="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
+            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Accident Prediction</h2>
+            <p class="mt-6 text-lg leading-8 text-gray-300">In my Accident Detection project, we utilized the YOLOv11 model to train an accident detection system. Our process included data collection, labeling with Roboflow, local model training, and platform development using Streamlit.</p>
+            <div class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
+              <a href="https://drive.google.com/file/d/1VSPMUMci3QF5UNqlW8GkAapegPWUQQW6/view?usp=drive_link" target="_blank" rel="noopener" class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Learn More <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+          <div class="relative mt-16 h-80 lg:mt-8">
+            <img class="absolute left-0 top-0 w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10" src="src\asset\image\yolo_cover.png" alt="App screenshot" width="1824" height="1080">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Amazon Sales -->
+    <div class="bg-white">
+      <div class="mx-auto max-w-7xl py-8 sm:px-6 sm:py-12 lg:px-8">
+        <div class="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
+          <svg viewBox="0 0 1024 1024" class="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2 lg:translate-y-0" aria-hidden="true">
+            <circle cx="512" cy="512" r="512" fill="gray" />
+          </svg>
+          <div class="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
+            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Amazon Sales Dashboard</h2>
+            <p class="mt-6 text-lg leading-8 text-gray-300">Project that involves sales data cleaning, trend analysis, and dashboard creation to uncover insights and optimize sales strategies.</p>
+            <div class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
+              <a href="https://drive.google.com/file/d/1fwgaB36fY9b5gHDAChAbulaMZilLl8dA/view?usp=drive_link" target="_blank" rel="noopener" class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Learn More <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+          <div class="relative mt-16 h-80 lg:mt-8">
+            <img class="absolute left-0 top-0 w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10" src="src\asset\image\amazon.png" alt="App screenshot" width="1824" height="1080">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GoodGamingshop -->
+    <div class="bg-white">
+      <div class="mx-auto max-w-7xl py-8 sm:px-6 sm:py-12 lg:px-8">
+        <div class="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
+          <svg viewBox="0 0 1024 1024" class="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2 lg:translate-y-0" aria-hidden="true">
+            <circle cx="512" cy="512" r="512" fill="gray" />
+          </svg>
+          <div class="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
+            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">GoodGamingShop Analysis</h2>
+            <p class="mt-6 text-lg leading-8 text-gray-300">Project that applies sales data analysis and collaborative filtering to recommend products and uncover customer purchasing patterns.</p>
+            <div class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
+              <a href="https://drive.google.com/file/d/1zH8l4ARDYzCLWTL40J07zqzWN-FuP8lo/view?usp=drive_link" target="_blank" rel="noopener" class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Learn More <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+          <div class="relative mt-16 h-80 lg:mt-8">
+            <img class="absolute left-0 top-0 w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10" src="src\asset\image\good-gamingshop.png" alt="App screenshot" width="1824" height="1080">
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Spotify -->
+    <div class="bg-white">
+      <div class="mx-auto max-w-7xl py-8 sm:px-6 sm:py-12 lg:px-8">
+        <div class="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
+          <svg viewBox="0 0 1024 1024" class="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2 lg:translate-y-0" aria-hidden="true">
+            <circle cx="512" cy="512" r="512" fill="gray" />
+          </svg>
+          <div class="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
+            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Song Emotion Recognition</h2>
+            <p class="mt-6 text-lg leading-8 text-gray-300">Project that leverages data analysis and machine learning to identify and categorize the emotions conveyed in music tracks</p>
+            <div class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
+              <a href="https://drive.google.com/file/d/1TTXVcSpIORwpqYAL_3L6V14UvktrofoP/view?usp=drive_link" target="_blank" rel="noopener" class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Learn More <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+          <div class="relative mt-16 h-80 lg:mt-8">
+            <img class="absolute left-0 top-0 w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10" src="src\asset\image\spotify-emotion-cover.png" alt="App screenshot" width="1824" height="1080">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="w-4/5 sm:w-3/5 relative mx-auto ">
+    <div class="py-16 w-full max-w-7xl mx-auto">
+      <hr class="my-8 border-gray-300">
+      
+      <div class="lg:flex lg:items-end lg:justify-between">
+        <ul class="mb-5 flex flex-wrap justify-center items-center gap-6 md:gap-8 lg:justify-end lg:gap-12">
+          <li>
+            <a
+              href="https://www.linkedin.com/in/picessakresna/"
+              rel="noreferrer"
+              target="_blank"
+              class="text-teal-700 transition hover:text-teal-700/75"
+            >
+              <span class="sr-only">LinkedIn</span>
+              <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 30 30">
+                <path d="M24,4H6C4.895,4,4,4.895,4,6v18c0,1.105,0.895,2,2,2h18c1.105,0,2-0.895,2-2V6C26,4.895,25.105,4,24,4z M10.954,22h-2.95 v-9.492h2.95V22z M9.449,11.151c-0.951,0-1.72-0.771-1.72-1.72c0-0.949,0.77-1.719,1.72-1.719c0.948,0,1.719,0.771,1.719,1.719 C11.168,10.38,10.397,11.151,9.449,11.151z M22.004,22h-2.948v-4.616c0-1.101-0.02-2.517-1.533-2.517 c-1.535,0-1.771,1.199-1.771,2.437V22h-2.948v-9.492h2.83v1.297h0.04c0.394-0.746,1.356-1.533,2.791-1.533 c2.987,0,3.539,1.966,3.539,4.522V22z"></path>
+              </svg>
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="https://github.com/picessakresna"
+              rel="noreferrer"
+              target="_blank"
+              class="text-teal-700 transition hover:text-teal-700/75"
+            >
+              <span class="sr-only">Github</span>
+              <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 30 30">
+                <path d="M15,3C8.373,3,3,8.373,3,15c0,5.623,3.872,10.328,9.092,11.63C12.036,26.468,12,26.28,12,26.047v-2.051 c-0.487,0-1.303,0-1.508,0c-0.821,0-1.551-0.353-1.905-1.009c-0.393-0.729-0.461-1.844-1.435-2.526 c-0.289-0.227-0.069-0.486,0.264-0.451c0.615,0.174,1.125,0.596,1.605,1.222c0.478,0.627,0.703,0.769,1.596,0.769 c0.433,0,1.081-0.025,1.691-0.121c0.328-0.833,0.895-1.6,1.588-1.962c-3.996-0.411-5.903-2.399-5.903-5.098 c0-1.162,0.495-2.286,1.336-3.233C9.053,10.647,8.706,8.73,9.435,8c1.798,0,2.885,1.166,3.146,1.481C13.477,9.174,14.461,9,15.495,9 c1.036,0,2.024,0.174,2.922,0.483C18.675,9.17,19.763,8,21.565,8c0.732,0.731,0.381,2.656,0.102,3.594 c0.836,0.945,1.328,2.066,1.328,3.226c0,2.697-1.904,4.684-5.894,5.097C18.199,20.49,19,22.1,19,23.313v2.734 c0,0.104-0.023,0.179-0.035,0.268C23.641,24.676,27,20.236,27,15C27,8.373,21.627,3,15,3z"></path>
+              </svg>
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="https://dribbble.com/picessakresna"
+              rel="noreferrer"
+              target="_blank"
+              class="text-teal-700 transition hover:text-teal-700/75"
+            >
+              <span class="sr-only">Dribbble</span>
+              <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 30 30">
+                <path d="M 16 4 C 9.382813 4 4 9.382813 4 16 C 4 22.617188 9.382813 28 16 28 C 22.617188 28 28 22.617188 28 16 C 28 9.382813 22.617188 4 16 4 Z M 16 6 C 18.535156 6 20.832031 6.953125 22.59375 8.5 C 22.40625 8.761719 22.152344 9.078125 21.75 9.46875 C 20.894531 10.296875 19.527344 11.292969 17.4375 12.0625 C 16.023438 9.449219 14.636719 7.484375 13.71875 6.25 C 14.449219 6.082031 15.214844 6 16 6 Z M 11.75 6.9375 C 12.570313 8.011719 14.03125 10.003906 15.5 12.65625 C 11.433594 13.734375 7.703125 13.871094 6.21875 13.875 C 6.882813 10.785156 8.960938 8.242188 11.75 6.9375 Z M 23.96875 9.96875 C 25.1875 11.582031 25.945313 13.578125 26 15.75 C 25.109375 15.550781 23.796875 15.355469 22.09375 15.34375 C 21.207031 15.339844 20.203125 15.402344 19.125 15.53125 C 18.875 14.960938 18.605469 14.410156 18.34375 13.875 C 20.585938 13.015625 22.113281 11.882813 23.125 10.90625 C 23.46875 10.570313 23.738281 10.261719 23.96875 9.96875 Z M 16.40625 14.46875 C 16.636719 14.933594 16.871094 15.410156 17.09375 15.90625 C 12.820313 17.089844 9.75 20.714844 8.4375 22.53125 C 6.925781 20.78125 6 18.5 6 16 C 6 15.957031 6 15.917969 6 15.875 C 7.351563 15.890625 11.648438 15.796875 16.40625 14.46875 Z M 22.09375 17.3125 C 23.878906 17.3125 25.113281 17.5625 25.84375 17.75 C 25.378906 20.414063 23.875 22.699219 21.75 24.1875 C 21.351563 21.796875 20.695313 19.523438 19.90625 17.4375 C 20.695313 17.359375 21.441406 17.3125 22.09375 17.3125 Z M 17.875 17.78125 C 18.773438 20.0625 19.527344 22.566406 19.90625 25.21875 C 18.710938 25.722656 17.382813 26 16 26 C 13.707031 26 11.589844 25.230469 9.90625 23.9375 C 10.933594 22.53125 13.953125 18.789063 17.875 17.78125 Z"></path>
+              </svg>
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="https://picessakresna.medium.com/"
+              rel="noreferrer"
+              target="_blank"
+              class="text-teal-700 transition hover:text-teal-700/75"
+            >
+              <span class="sr-only">Medium</span>
+              <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 30 30">
+                <path d="M8.5 7A8.5 8.5 0 108.5 24 8.5 8.5 0 108.5 7zM22 8A4 7.5 0 1022 23 4 7.5 0 1022 8zM28.5 9A1.5 6.5 0 1028.5 22 1.5 6.5 0 1028.5 9z"></path>
+              </svg>
+            </a>
+          </li>
+        </ul>
+
+        <ul class="mb-5 flex flex-wrap justify-center items-center gap-6 md:gap-8 lg:justify-end lg:gap-12">
+          <li>
+            <a class="text-gray-700 transition hover:text-gray-700/75" href="index.html"> Home </a>
+          </li>
+          
+          <li>
+            <a class="text-gray-700 transition hover:text-gray-700/75" href="about.html"> About </a>
+          </li>
+
+          <li>
+            <a class="text-gray-700 transition hover:text-gray-700/75" href="more.html"> More </a>
+          </li>
+          
+          <li>
+            <a class="text-gray-700 transition hover:text-gray-700/75" href="https://drive.google.com/file/d/1pXqfGqkPpsyGitsN66lClU1j0ujAFAkv/view?usp=sharing"> Download CV </a>
+          </li>
+
+        </ul>
+      </div>
+
+      <div class="lg:flex lg:items-end lg:justify-between">
+        <p class="mt-12 text-center text-sm text-gray-500 lg:text-right">
+          Copyright &copy; 2024 PicessaKresna.  All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="src/js/script.js"></script>
+</body>
+</html>

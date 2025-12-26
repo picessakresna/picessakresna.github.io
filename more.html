@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Picessa | More</title>
+  <link href="src/output.css" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.1/dist/cdn.min.js"></script>
+    <link rel="icon" href="src/asset/icons/iconlogo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+</head>
+<body class="font-inter hide-scrollbar"> 
+
+    <!-- Tabs Container -->
+    <header>
+        <div class="mt-16 mx-4 flex justify-center 2xl:space-x-80 lg:space-x-20 sm:space-x-10">
+            <div class="h-14 w-14 text-gray-500 shadow-[0_0_30px_0_rgba(0,0,0,0.15)] rounded-full ">
+                <div class="flex justify-center p-4">
+                    <button onclick="goHome()" class="text-gray-500 relative focus:outline-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                            <path fill-rule="evenodd" d="M7.72 12.53a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 1 1 1.06 1.06L9.31 12l6.97 6.97a.75.75 0 1 1-1.06 1.06l-7.5-7.5Z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid grid-flow-col text-center w-[52rem]">
+            </div>
+            
+            <div class="burger h-14 w-14 text-gray-500 shadow-[0_0_30px_0_rgba(0,0,0,0.15)] rounded-full ">
+                <div class="flex justify-center">
+                <div class="relative p-3 sm:max-w-xl mx-auto">
+                    <nav x-data="{ isOpen: false }">
+                    <!-- Dropdown toggle button -->
+                    <button class="text-gray-500 w-8 h-6 relative focus:outline-none" @click="isOpen = !isOpen">
+                        <span class="sr-only">Open main menu</span>
+                        <div class="block w-5 absolute left-1/2 top-[14px] transform -translate-x-1/2 -translate-y-1/2">
+                        <span aria-hidden="true" class="block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out" :class="{'rotate-45': isOpen,' -translate-y-1.5': !isOpen }"></span>
+                        <span aria-hidden="true" class="block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out" :class="{'opacity-0': isOpen } "></span>
+                        <span aria-hidden="true" class="block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out" :class="{'-rotate-45': isOpen, ' translate-y-1.5': !isOpen}"></span>
+                        </div>
+                    </button>
+                    <!-- Dropdown menu -->
+                    <div x-show="isOpen"
+                        @click.away="isOpen = false"
+                        x-transition:enter="transition ease-out duration-300"
+                        x-transition:enter-start="opacity-0 scale-90"
+                        x-transition:enter-end="opacity-100 scale-100"
+                        x-transition:leave="transition ease-in duration-100"
+                        x-transition:leave-start="opacity-100 scale-100"
+                        x-transition:leave-end="opacity-0 scale-90"
+                        class="absolute right-0 z-20 w-48 p-4 mt-8 origin-top-right bg-white rounded-md shadow-[0_0_30px_0_rgba(0,0,0,0.15)] "
+                    >
+                        <a href="index.html" class="flex items-center gap-2 px-3 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100 ">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                                <path fill-rule="evenodd" d="M9.293 2.293a1 1 0 0 1 1.414 0l7 7A1 1 0 0 1 17 11h-1v6a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-6H3a1 1 0 0 1-.707-1.707l7-7Z" clip-rule="evenodd" />
+                            </svg>
+
+                            <span class="mx-1">
+                                Home
+                            </span>
+                        </a>
+
+                        <a href="about.html" class="flex items-center gap-2 px-3 py-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-gray-100 ">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                            <path d="M10 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM3.465 14.493a1.23 1.23 0 0 0 .41 1.412A9.957 9.957 0 0 0 10 18c2.31 0 4.438-.784 6.131-2.1.43-.333.604-.903.408-1.41a7.002 7.002 0 0 0-13.074.003Z" />
+                            </svg>
+                            <span class="mx-1">
+                                About
+                            </span>
+                        </a>
+                    </div>
+                    </nav>
+                </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Card Blog -->
+    <div class="w-4/5 xl:w-3/5 mx-auto">
+    <!-- Title -->
+        <div class="mt-8">
+            <h1 class="text-5xl sm:text-7xl font-bold mb-16 gradient-text-1 pb-2 leading-normal text-center">More Story & Articles</h1>
+        </div>
+    <!-- End Title -->
+
+    <!-- Grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Card -->
+        <a class="group flex flex-col focus:outline-none" href="https://www.youtube.com/watch?v=hg7AUKpYv64">
+        <div class="relative pt-[50%] sm:pt-[70%] rounded-xl overflow-hidden">
+            <img class="size-full absolute top-0 start-0 object-cover group-hover:scale-105 group-focus:scale-105 transition-transform duration-500 ease-in-out rounded-xl" src="src\asset\image\kkn-desabondalem-cover.jpg" alt="Blog Image">
+        </div>
+
+        <div class="mt-7">
+            <h3 class="text-xl font-semibold text-gray-800 group-hover:text-gray-600 ">
+            KKN Desa Bondalem
+            </h3>
+            <p class="mt-3 text-gray-800 ">
+            Making a promotion video for the village of Bondalem, Buleleng, Bali, Indonesia
+            </p>
+            <p class="mt-5 inline-flex items-center gap-x-1 text-sm text-blue-600 decoration-2 group-hover:underline group-focus:underline font-medium ">
+            Read more
+            <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </p>
+        </div>
+        </a>
+        <!-- End Card -->
+
+        <!-- Card -->
+        <a class="group flex flex-col focus:outline-none" href="https://www.linkedin.com/posts/mhdrizkyf_digistar-class-2024adalah-pengalaman-pertama-activity-7238719958996672512-ozyj?utm_source=share&utm_medium=member_desktop&rcm=ACoAACFpRHYBjGD6NUC3imtsfVlIRZfx4iKnvw4">
+        <div class="relative pt-[50%] sm:pt-[70%] rounded-xl overflow-hidden">
+            <img class="size-full absolute top-0 start-0 object-cover group-hover:scale-105 group-focus:scale-105 transition-transform duration-500 ease-in-out rounded-xl" src="src\asset\image\Digistar.jpeg" alt="Blog Image">
+        </div>
+
+        <div class="mt-7">
+            <h3 class="text-xl font-semibold text-gray-800 group-hover:text-gray-600 ">
+            Digistar Class 2024
+            </h3>
+            <p class="mt-3 text-gray-800 ">
+            Digital innovation through collaborative learning
+            </p>
+            <p class="mt-5 inline-flex items-center gap-x-1 text-sm text-blue-600 decoration-2 group-hover:underline group-focus:underline font-medium ">
+            Read more
+            <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </p>
+        </div>
+        </a>
+        <!-- End Card -->
+
+        <!-- Card -->
+        <a class="group flex flex-col focus:outline-none" href="https://www.instagram.com/p/C7N3TsNtraX/?img_index=5">
+        <div class="relative pt-[50%] sm:pt-[70%] rounded-xl overflow-hidden">
+            <img class="size-full absolute top-0 start-0 object-cover group-hover:scale-105 group-focus:scale-105 transition-transform duration-500 ease-in-out rounded-xl" src="src\asset\image\sekolahbeta-cover.jpg" alt="Blog Image">
+        </div>
+
+        <div class="mt-7">
+            <h3 class="text-xl font-semibold text-gray-800 group-hover:text-gray-600 ">
+            Sekolah Beta Intensif Bali
+            </h3>
+            <p class="mt-3 text-gray-800 ">
+            A story about a school that provides by 1000 Startup Digital in Bali
+            </p>
+            <p class="mt-5 inline-flex items-center gap-x-1 text-sm text-blue-600 decoration-2 group-hover:underline group-focus:underline font-medium ">
+            Read more
+            <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </p>
+        </div>
+        </a>
+        <!-- End Card -->
+    </div>
+    <!-- End Grid -->
+
+    <!-- Grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+        <!-- Card -->
+        <a class="group flex flex-col focus:outline-none" href="https://www.youtube.com/watch?v=0CDn7A5-H_Q">
+        <div class="relative pt-[50%] sm:pt-[70%] rounded-xl overflow-hidden">
+            <img class="size-full absolute top-0 start-0 object-cover group-hover:scale-105 group-focus:scale-105 transition-transform duration-500 ease-in-out rounded-xl" src="src\asset\image\THUMBNAIL.jpg" alt="Blog Image">
+        </div>
+
+        <div class="mt-7">
+            <h3 class="text-xl font-semibold text-gray-800 group-hover:text-gray-600 ">
+            ILS Desa Sidemen
+            </h3>
+            <p class="mt-3 text-gray-800 ">
+            Community innovation with local impact
+            </p>
+            <p class="mt-5 inline-flex items-center gap-x-1 text-sm text-blue-600 decoration-2 group-hover:underline group-focus:underline font-medium ">
+            Read more
+            <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </p>
+        </div>
+        </a>
+        <!-- End Card -->
+
+        <!-- Card -->
+        <a class="group flex flex-col focus:outline-none" href="https://www.instagram.com/reel/Ct22esRNjkx/">
+        <div class="relative pt-[50%] sm:pt-[70%] rounded-xl overflow-hidden">
+            <img class="size-full absolute top-0 start-0 object-cover group-hover:scale-105 group-focus:scale-105 transition-transform duration-500 ease-in-out rounded-xl" src="src\asset\image\DSC01448.JPG" alt="Blog Image">
+        </div>
+
+        <div class="mt-7">
+            <h3 class="text-xl font-semibold text-gray-800 group-hover:text-gray-600 ">
+            PILMAPRES TI 2022
+            </h3>
+            <p class="mt-3 text-gray-800 ">
+            Outstanding student in tech competition
+            </p>
+            <p class="mt-5 inline-flex items-center gap-x-1 text-sm text-blue-600 decoration-2 group-hover:underline group-focus:underline font-medium ">
+            Read more
+            <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </p>
+        </div>
+        </a>
+        <!-- End Card -->
+
+        <!-- Card -->
+        <a class="group relative flex flex-col w-full min-h-60 bg-[url('https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=560&q=80')] bg-center bg-cover rounded-xl hover:shadow-lg focus:outline-none focus:shadow-lg transition" href="#">
+        <div class="flex-auto p-4 md:p-6">
+            <h3 class="text-xl text-white/90 group-hover:text-white"><span class="font-bold">View more story and article about me and my activity</h3>
+        </div>
+        <div class="pt-0 p-4 md:p-6">
+            <div class="inline-flex items-center gap-2 text-sm font-medium text-white group-hover:text-white/70 group-focus:text-white/70">
+            Visit the site
+            <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </div>
+        </div>
+        </a>
+        <!-- End Card -->
+    </div>
+    <!-- End Grid -->
+    
+
+    <footer class="w-4/5 sm:w-3/5 relative mx-auto ">
+      <div class="py-16 w-full max-w-7xl mx-auto">
+        <hr class="my-8 border-gray-300">
+        
+        <div class="lg:flex lg:items-end lg:justify-between">
+          <ul class="mb-5 flex flex-wrap justify-center items-center gap-6 md:gap-8 lg:justify-end lg:gap-12">
+            <li>
+              <a
+                href="https://www.linkedin.com/in/picessakresna/"
+                rel="noreferrer"
+                target="_blank"
+                class="text-teal-700 transition hover:text-teal-700/75"
+              >
+                <span class="sr-only">LinkedIn</span>
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 30 30">
+                  <path d="M24,4H6C4.895,4,4,4.895,4,6v18c0,1.105,0.895,2,2,2h18c1.105,0,2-0.895,2-2V6C26,4.895,25.105,4,24,4z M10.954,22h-2.95 v-9.492h2.95V22z M9.449,11.151c-0.951,0-1.72-0.771-1.72-1.72c0-0.949,0.77-1.719,1.72-1.719c0.948,0,1.719,0.771,1.719,1.719 C11.168,10.38,10.397,11.151,9.449,11.151z M22.004,22h-2.948v-4.616c0-1.101-0.02-2.517-1.533-2.517 c-1.535,0-1.771,1.199-1.771,2.437V22h-2.948v-9.492h2.83v1.297h0.04c0.394-0.746,1.356-1.533,2.791-1.533 c2.987,0,3.539,1.966,3.539,4.522V22z"></path>
+                </svg>
+              </a>
+            </li>
+  
+            <li>
+              <a
+                href="https://github.com/picessakresna"
+                rel="noreferrer"
+                target="_blank"
+                class="text-teal-700 transition hover:text-teal-700/75"
+              >
+                <span class="sr-only">Github</span>
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 30 30">
+                  <path d="M15,3C8.373,3,3,8.373,3,15c0,5.623,3.872,10.328,9.092,11.63C12.036,26.468,12,26.28,12,26.047v-2.051 c-0.487,0-1.303,0-1.508,0c-0.821,0-1.551-0.353-1.905-1.009c-0.393-0.729-0.461-1.844-1.435-2.526 c-0.289-0.227-0.069-0.486,0.264-0.451c0.615,0.174,1.125,0.596,1.605,1.222c0.478,0.627,0.703,0.769,1.596,0.769 c0.433,0,1.081-0.025,1.691-0.121c0.328-0.833,0.895-1.6,1.588-1.962c-3.996-0.411-5.903-2.399-5.903-5.098 c0-1.162,0.495-2.286,1.336-3.233C9.053,10.647,8.706,8.73,9.435,8c1.798,0,2.885,1.166,3.146,1.481C13.477,9.174,14.461,9,15.495,9 c1.036,0,2.024,0.174,2.922,0.483C18.675,9.17,19.763,8,21.565,8c0.732,0.731,0.381,2.656,0.102,3.594 c0.836,0.945,1.328,2.066,1.328,3.226c0,2.697-1.904,4.684-5.894,5.097C18.199,20.49,19,22.1,19,23.313v2.734 c0,0.104-0.023,0.179-0.035,0.268C23.641,24.676,27,20.236,27,15C27,8.373,21.627,3,15,3z"></path>
+                </svg>
+              </a>
+            </li>
+  
+            <li>
+              <a
+                href="https://dribbble.com/picessakresna"
+                rel="noreferrer"
+                target="_blank"
+                class="text-teal-700 transition hover:text-teal-700/75"
+              >
+                <span class="sr-only">Dribbble</span>
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 30 30">
+                  <path d="M 16 4 C 9.382813 4 4 9.382813 4 16 C 4 22.617188 9.382813 28 16 28 C 22.617188 28 28 22.617188 28 16 C 28 9.382813 22.617188 4 16 4 Z M 16 6 C 18.535156 6 20.832031 6.953125 22.59375 8.5 C 22.40625 8.761719 22.152344 9.078125 21.75 9.46875 C 20.894531 10.296875 19.527344 11.292969 17.4375 12.0625 C 16.023438 9.449219 14.636719 7.484375 13.71875 6.25 C 14.449219 6.082031 15.214844 6 16 6 Z M 11.75 6.9375 C 12.570313 8.011719 14.03125 10.003906 15.5 12.65625 C 11.433594 13.734375 7.703125 13.871094 6.21875 13.875 C 6.882813 10.785156 8.960938 8.242188 11.75 6.9375 Z M 23.96875 9.96875 C 25.1875 11.582031 25.945313 13.578125 26 15.75 C 25.109375 15.550781 23.796875 15.355469 22.09375 15.34375 C 21.207031 15.339844 20.203125 15.402344 19.125 15.53125 C 18.875 14.960938 18.605469 14.410156 18.34375 13.875 C 20.585938 13.015625 22.113281 11.882813 23.125 10.90625 C 23.46875 10.570313 23.738281 10.261719 23.96875 9.96875 Z M 16.40625 14.46875 C 16.636719 14.933594 16.871094 15.410156 17.09375 15.90625 C 12.820313 17.089844 9.75 20.714844 8.4375 22.53125 C 6.925781 20.78125 6 18.5 6 16 C 6 15.957031 6 15.917969 6 15.875 C 7.351563 15.890625 11.648438 15.796875 16.40625 14.46875 Z M 22.09375 17.3125 C 23.878906 17.3125 25.113281 17.5625 25.84375 17.75 C 25.378906 20.414063 23.875 22.699219 21.75 24.1875 C 21.351563 21.796875 20.695313 19.523438 19.90625 17.4375 C 20.695313 17.359375 21.441406 17.3125 22.09375 17.3125 Z M 17.875 17.78125 C 18.773438 20.0625 19.527344 22.566406 19.90625 25.21875 C 18.710938 25.722656 17.382813 26 16 26 C 13.707031 26 11.589844 25.230469 9.90625 23.9375 C 10.933594 22.53125 13.953125 18.789063 17.875 17.78125 Z"></path>
+                </svg>
+              </a>
+            </li>
+  
+            <li>
+              <a
+                href="https://picessakresna.medium.com/"
+                rel="noreferrer"
+                target="_blank"
+                class="text-teal-700 transition hover:text-teal-700/75"
+              >
+                <span class="sr-only">Medium</span>
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 30 30">
+                  <path d="M8.5 7A8.5 8.5 0 108.5 24 8.5 8.5 0 108.5 7zM22 8A4 7.5 0 1022 23 4 7.5 0 1022 8zM28.5 9A1.5 6.5 0 1028.5 22 1.5 6.5 0 1028.5 9z"></path>
+                </svg>
+              </a>
+            </li>
+          </ul>
+  
+          <ul class="mb-5 flex flex-wrap justify-center items-center gap-6 md:gap-8 lg:justify-end lg:gap-12">
+            <li>
+              <a class="text-gray-700 transition hover:text-gray-700/75" href="index.html"> Home </a>
+            </li>
+            
+            <li>
+              <a class="text-gray-700 transition hover:text-gray-700/75" href="about.html"> About </a>
+            </li>
+  
+            <li>
+              <a class="text-gray-700 transition hover:text-gray-700/75" href="more.html"> More </a>
+            </li>
+            
+            <li>
+              <a class="text-gray-700 transition hover:text-gray-700/75" href="https://drive.google.com/file/d/1pXqfGqkPpsyGitsN66lClU1j0ujAFAkv/view?usp=sharing"> Download CV </a>
+            </li>
+  
+          </ul>
+        </div>
+  
+        <div class="lg:flex lg:items-end lg:justify-between">
+          <p class="mt-12 text-center text-sm text-gray-500 lg:text-right">
+            Copyright &copy; 2024 PicessaKresna.  All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+  <script src="src/js/other.js"></script>
+</body>
+</html>
